@@ -65,4 +65,13 @@ public class PlayerController : MonoBehaviour
 
         _rigidBody.velocity = curSpeed;
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<PickUpItem>())
+        {
+            PickUpItem item = collider.gameObject.GetComponent<PickUpItem>();
+            item.onPickedUp(this.gameObject);
+        }
+    }
 }
