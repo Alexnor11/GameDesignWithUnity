@@ -364,7 +364,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementAcceleration: 50
   _movementVelocityMax: 5
-  _movementFriction: 0.05
+  _movementFriction: 0.03
+  _lampVelocity: 20
+  _extraGravity: 40
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

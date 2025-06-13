@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Tooltip("Замeдление при отсутствии сигнала направления")]
     private float _movementFriction = 0.05f;
 
+    [SerializeField, Tooltip("Сила вверх при нажатии клавиши прыжка")]
+    private float _jampVelocity = 20;
+
+    [SerializeField, Tooltip("Дополнительная гравитацтонная сила")]
+    private float _extraGravity = 40;
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
@@ -47,6 +53,12 @@ public class PlayerController : MonoBehaviour
             curSpeed.z -= _movementFriction * curSpeed.z;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(curSpeed.y) < 1)
+        {
+            curSpeed.y += _jampVelocity;
+        }
+        else
+            curSpeed.y -= _extraGravity * Time.deltaTime;
 
         curSpeed.x = Mathf.Clamp(curSpeed.x, _movementVelocityMax * -1, _movementVelocityMax);
         curSpeed.z = Mathf.Clamp(curSpeed.z, _movementVelocityMax * -1, _movementVelocityMax);
