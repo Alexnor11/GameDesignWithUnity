@@ -6,8 +6,10 @@ public class ItemSpawnZone : MonoBehaviour
 {
     [SerializeField, Tooltip("Перфаб для создания" )]
     private GameObject _itemToSpawn;
+    
     [SerializeField, Tooltip("Количество монет для создания")]
     private float _itemCount = 30;
+    
     [SerializeField, Tooltip("Область для сщздания предметов")]
     private BoxCollider _spawnZone;
 
@@ -30,7 +32,6 @@ public class ItemSpawnZone : MonoBehaviour
         Instantiate(_itemToSpawn, randomPos, Quaternion.identity);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
